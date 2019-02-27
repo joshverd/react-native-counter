@@ -1,5 +1,7 @@
-React Native Counter
+React Native Formatted Counter
 ====================
+
+Forked from [react-native-counter](https://github.com/Kerumen/react-native-counter), adds support for a 'formatter' prop. You can use the formatter to modify the final displayed value of the counter.
 
 Simple counter component for [React Native](http://facebook.github.io/react-native/)
 inspired by [react-count-to](https://github.com/MicheleBertoli/react-count-to)
@@ -10,7 +12,7 @@ and [react-counter](https://github.com/saebekassebil/react-counter).
 # Installation
 
 ```bash
-npm install --save react-native-counter
+npm install --save react-native-formatted-counter
 ```
 
 # Usage
@@ -26,6 +28,9 @@ import Counter from 'react-native-counter';
   easing="linear"               // Easing function name
   onComplete={}                 // Callback when the counter is completed
   style={}                      // Custom style
+  formatter={(data) => {        // Custom Formatter - returned value is displayed
+    return `$${data}`;
+  }}
 />
 ```
 
