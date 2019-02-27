@@ -56,8 +56,14 @@ export default class Counter extends Component {
     const { digits, style } = this.props;
     const { value } = this.state;
 
-    return (
-      <Text style={style}>{value.toFixed(digits)}</Text>
-    );
+    if(this.props.formatter) {
+      return (
+        <Text style={style}>{this.props.formatter(value.toFixed(digits))}</Text>
+      );
+    } else {
+      return (
+        <Text style={style}>{value.toFixed(digits)}</Text>
+      );
+    }
   }
 }
