@@ -28,6 +28,16 @@ export default class Counter extends Component {
     requestAnimationFrame(this.animate.bind(this));
   }
 
+  componentDidUpdate() {
+    // When the component's start/end props are updated and reanimate is enabled, the animation should restart
+    if(this.props.reanimate == true) {
+      this.startTime = Date.now();
+      this.stop = false;
+
+      requestAnimationFrame(this.animate.bind(this));
+    }
+  }
+
   animate() {
     const { onComplete } = this.props;
 
